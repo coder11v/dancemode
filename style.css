@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #222;
+    margin: 0;
+    overflow: hidden;
+}
+
+#partyLight {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #555;
+    box-shadow: 0 0 50px #000;
+    transition: background-color 0.1s ease-out;
+}
+
+#instructions {
+    margin-top: 20px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
