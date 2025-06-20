@@ -23,3 +23,25 @@ body {
     color: #fff;
     font-family: Arial, sans-serif;
 }
+
+#fullscreenBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+#fullscreenBtn:hover {
+    background-color: #45a049;
+}
+
+#fullscreenBtn:active {
+    background-color: #3e8e41;
+}

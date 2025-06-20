@@ -55,3 +55,33 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     instructions.innerHTML = '<p>Your browser does not support microphone access. Try a different browser.</p>';
     console.error('getUserMedia not supported on your browser!');
 }
+
+const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+function toggleFullscreen() {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().then(() => {
+            fullscreenBtn.textContent = 'Exit Fullscreen';
+        }).catch(err => {
+            console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+            alert(`Error attempting to enable full-screen mode: ${err.message}`);
+        });
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen().then(() => {
+                fullscreenBtn.textContent = 'Enter Fullscreen';
+            });
+        }
+    }
+}
+
+fullscreenBtn.addEventListener('click', toggleFullscreen);
+
+// Update button text if fullscreen state changes (e.g. by pressing ESC)
+document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement) {
+        fullscreenBtn.textContent = 'Enter Fullscreen';
+    } else {
+        fullscreenBtn.textContent = 'Exit Fullscreen';
+    }
+});
